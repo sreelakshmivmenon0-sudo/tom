@@ -7,49 +7,48 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    overflow:hidden;
-    height:100vh;
-    background:linear-gradient(to bottom,#ffb6d9,#ffd9ec,#ffffff);
+overflow:hidden;
+height:100vh;
+background:linear-gradient(to bottom,#ffb6d9,#ffd9ec,#ffffff);
 }
 
-/* Clouds */
 .cloud{
-    position:absolute;
-    width:150px;
-    height:60px;
-    background:white;
-    border-radius:50px;
-    opacity:.8;
-    animation:moveCloud 25s linear infinite;
+position:absolute;
+width:150px;
+height:60px;
+background:white;
+border-radius:50px;
+opacity:.8;
+animation:moveCloud 25s linear infinite;
 }
 
 .cloud::before,
 .cloud::after{
-    content:"";
-    position:absolute;
-    background:white;
-    border-radius:50%;
+content:"";
+position:absolute;
+background:white;
+border-radius:50%;
 }
 
 .cloud::before{
-    width:70px;
-    height:70px;
-    top:-30px;
-    left:20px;
+width:70px;
+height:70px;
+top:-30px;
+left:20px;
 }
 
 .cloud::after{
-    width:80px;
-    height:80px;
-    top:-40px;
-    right:20px;
+width:80px;
+height:80px;
+top:-40px;
+right:20px;
 }
 
 .c1{top:50px;left:-200px;}
@@ -57,12 +56,126 @@ body{
 .c3{top:250px;left:-500px;animation-delay:15s;}
 
 @keyframes moveCloud{
-    to{
-        transform:translateX(1800px);
-    }
+to{
+transform:translateX(1800px);
+}
 }
 
-/* Characters */
 .girl,.boy{
-    position:absolute;
-    bottom:70
+position:absolute;
+bottom:70px;
+font-size:90px;
+}
+
+.girl{
+left:-120px;
+animation:walk 5s forwards;
+}
+
+.boy{
+left:65%;
+}
+
+@keyframes walk{
+to{
+left:30%;
+}
+}
+    .message{
+position:absolute;
+width:100%;
+top:40px;
+text-align:center;
+font-size:35px;
+color:#ff1493;
+font-weight:bold;
+opacity:0;
+animation:show 1s forwards;
+animation-delay:5s;
+}
+
+@keyframes show{
+to{
+opacity:1;
+}
+}
+
+.buttons{
+position:absolute;
+width:100%;
+text-align:center;
+bottom:120px;
+display:none;
+}
+
+button{
+padding:15px 30px;
+margin:10px;
+border:none;
+border-radius:30px;
+font-size:20px;
+color:white;
+cursor:pointer;
+}
+
+.yes{
+background:#ff1493;
+}
+
+.no{
+background:#555;
+position:relative;
+}
+
+.result{
+position:absolute;
+width:100%;
+top:120px;
+text-align:center;
+font-size:40px;
+color:red;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cloud c1"></div>
+<div class="cloud c2"></div>
+<div class="cloud c3"></div>
+
+<div class="message">Will You Be Mine? ❤️</div>
+
+<div class="girl">👧</div>
+<div class="boy">🤵</div>
+
+<div class="buttons" id="buttons">
+<button class="yes" onclick="yesClick()">Yes ❤️</button>
+<button class="no" id="noBtn">No 💔</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+setTimeout(function(){
+document.getElementById("buttons").style.display="block";
+},5000);
+
+function yesClick(){
+document.getElementById("result").innerHTML="Yay! ❤️🥰";
+}
+    const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function () {
+    this.style.position = "absolute";
+    this.style.left = Math.random() * 80 + "%";
+    this.style.top = Math.random() * 80 + "%";
+});
+
+</script>
+
+</body>
+</html>
+    
