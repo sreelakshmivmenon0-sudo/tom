@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal Animation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:linear-gradient(to bottom,#ffb6d9,#ffd9ec,#ffffff);
+}
+
+/* Clouds */
+.cloud{
+    position:absolute;
+    width:150px;
+    height:60px;
+    background:white;
+    border-radius:50px;
+    opacity:.8;
+    animation:moveCloud 25s linear infinite;
+}
+
+.cloud::before,
+.cloud::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:70px;
+    height:70px;
+    top:-30px;
+    left:20px;
+}
+
+.cloud::after{
+    width:80px;
+    height:80px;
+    top:-40px;
+    right:20px;
+}
+
+.c1{top:50px;left:-200px;}
+.c2{top:150px;left:-350px;animation-delay:8s;}
+.c3{top:250px;left:-500px;animation-delay:15s;}
+
+@keyframes moveCloud{
+    to{
+        transform:translateX(1800px);
+    }
+}
+
+/* Characters */
+.girl,.boy{
+    position:absolute;
+    bottom:70
